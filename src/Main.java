@@ -13,7 +13,9 @@ public class Main {
 
 
             AuthenticationValidator.checkAuthentication(login, password, confirmPassword);
-        }catch (WrongPasswordException exception){
+        }catch (WrongPasswordException | WrongLoginException exception){
+            System.out.println(exception.getMessage());
+        }catch (Exception exception){
             System.out.println(exception.getMessage());
         }
     }
