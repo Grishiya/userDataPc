@@ -8,7 +8,7 @@ public class AuthenticationValidator {
 
     private static final Pattern REGEX = Pattern.compile("^[A-Za-z0-9_]{5,20}$");
     public static void checkAuthentication(String login,String password,String confirmPassword)
-            throws WrongPasswordException {
+            throws Exception {
         checkLogin(login);
         checkPassword(password);
         checkConfirmPassword(password,confirmPassword);
@@ -28,9 +28,9 @@ public class AuthenticationValidator {
                     "и нижнее подчеркивание,а так же должен содержать от 5 до 20 символов включительно");
         }
     }
-    private static void checkConfirmPassword(String password,String confirmPassword)throws WrongPasswordException{
+    private static void checkConfirmPassword(String password,String confirmPassword)throws Exception{
         if (!password.equals(confirmPassword)){
-            throw new WrongPasswordException("Пароль и повторный пароль не совпада" +
+            throw new Exception("Пароль и повторный пароль не совпада" +
                     "ют");
 
         }
